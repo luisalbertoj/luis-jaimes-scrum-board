@@ -1,10 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const { conectionDB } = require("./db/db");
-require('dotenv').config();
+const Role = require("./routes/role")
+const User = require("./routes/user")
+require("dotenv").config();
+
 const app = express();
+
 app.use(express.json());
 app.use(cors());
-conectionDB();
+app.use("/api/role", Role);
+app.use("/api/user", User);
 
-app.listen(process.env.PORT, () => console.log("Server live, on port: ", process.env.PORT));
+app.listen(process.env.PORT, () =>
+  console.log("Backend server running OK, on port: ", process.env.PORT)
+);
+
+conectionDB();
