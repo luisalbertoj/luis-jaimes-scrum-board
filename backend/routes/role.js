@@ -1,12 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const RoleController = require("../controllers/role");
+const Role = require("../controllers/role");
 
-//GET, POST, PUT,  DELETE
-// http://Localhost:3001/api/role/registerRole
-router.post("/registerRole", RoleController.registerRole);
-// http://Localhost:3001/api/role/listRole
+router.post("/registerRole", Role.registerRole);
 
-router.get("/listRole", RoleController.listRoles);
+router.get("/listRole", Role.listRoles);
 
 module.exports = router;
